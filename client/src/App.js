@@ -14,7 +14,15 @@ function App() {
 
     return (
         <div>
-
+            {(typeof backendData.users !== 'undefined') ? (
+                <ul>
+                    {backendData.users.map((user, index) => (
+                        <li key={index}>{user}</li>
+                    ))}
+                </ul>
+            ) : (
+                <p>Waiting for backend data...</p>
+            )}
         </div>
     );
 }
