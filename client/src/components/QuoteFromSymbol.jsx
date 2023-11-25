@@ -1,6 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-const QuoteFromSymbol = ({ symbol, quoteData }) => {
+
+const QuoteFromSymbol = ({symbol, finnhubClient, updateSymbol}) => {
+    const [quoteData, setQuoteData] = useState([]);
+
+    const fetchQuoteData = async (symbol) => {
+        finnhubClient.quote(symbol, (error, data) => {
+            setQuoteData(data);
+        });
+    };
+
+    useEffect(() => {
+        void fetchQuoteData(symbol);
+    }, [symbol]);
+
+    const handleSubmit = (symbol) => {
+        void fetchQuoteData(symbol);
+    };
+
+
     return (
         <p>
             Symbol: {symbol}<br />
