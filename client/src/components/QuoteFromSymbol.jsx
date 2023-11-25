@@ -5,9 +5,11 @@ const QuoteFromSymbol = ({symbol, finnhubClient, updateSymbol}) => {
     const [quoteData, setQuoteData] = useState([]);
 
     const fetchQuoteData = async (symbol) => {
-        finnhubClient.quote(symbol, (error, data) => {
-            setQuoteData(data);
-        });
+        if (symbol !== "") {
+            finnhubClient.quote(symbol, (error, data) => {
+                setQuoteData(data);
+            });
+        }
     };
 
     useEffect(() => {

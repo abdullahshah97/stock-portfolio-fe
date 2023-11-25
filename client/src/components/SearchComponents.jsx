@@ -4,10 +4,10 @@ import QuoteFromSymbol from './QuoteFromSymbol';
 import SearchSymbol from './SearchSymbol';
 
 const SearchComponents = ({finnhubClient}) => {
-    const [symbol, setSymbol] = useState('AAPL');
+    const [symbol, setSymbol] = useState("AAPL");
 
     const updateSymbol = (newSymbol) => {
-        setSymbol(newSymbol);
+            setSymbol(newSymbol);
     }
 
     return(

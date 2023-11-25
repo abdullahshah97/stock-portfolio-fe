@@ -7,7 +7,6 @@ const App = () => {
     const finnhub_api_key = finnhub.ApiClient.instance.authentications['api_key'];
     finnhub_api_key.apiKey = REACT_APP_FINNHUB_API_KEY; // Replace this
     const finnhubClient = new finnhub.DefaultApi();
-    const [stockList, setStockList] = useState([]); // [ { symbol: "AAPL", description: "Apple Inc." }, ...
 
     return (
         <div className="App">
