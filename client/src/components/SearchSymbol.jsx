@@ -17,7 +17,6 @@ const SearchSymbol = ({symbol, updateSymbol}) => {
                     onChange={(e) => updateSymbol(e.target.value)}
                 />
             </label>
-            <input type="submit" value="Submit" />
         </form>
     );
 };

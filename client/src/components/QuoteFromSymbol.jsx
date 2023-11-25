@@ -16,9 +16,9 @@ const QuoteFromSymbol = ({symbol, finnhubClient, updateSymbol}) => {
         void fetchQuoteData(symbol);
     }, [symbol]);
 
-    const handleSubmit = (symbol) => {
-        void fetchQuoteData(symbol);
-    };
+    // const handleSubmit = (symbol) => {
+    //     void fetchQuoteData(symbol);
+    // };
 
 
     return (
