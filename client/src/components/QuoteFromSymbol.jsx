@@ -14,7 +14,7 @@ const QuoteFromSymbol = ({symbol, finnhubClient, updateSymbol}) => {
 
     useEffect(() => {
         void fetchQuoteData(symbol);
-    }, [symbol]);
+    }, [symbol]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // const handleSubmit = (symbol) => {
     //     void fetchQuoteData(symbol);
