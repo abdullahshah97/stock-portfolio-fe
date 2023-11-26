@@ -2,11 +2,6 @@ import React from 'react';
 
 const SearchSymbol = ({symbol, updateSymbol}) => {
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     updateSymbol(symbol);
-    // };
-
     return (
         <form >
             <label>
