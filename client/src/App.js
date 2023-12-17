@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+import React from 'react';
 import SearchComponents from "./components/SearchComponents";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const finnhub = require('finnhub');
 
 const App = () => {
@@ -7,28 +11,19 @@ const App = () => {
     const finnhub_api_key = finnhub.ApiClient.instance.authentications['api_key'];
     finnhub_api_key.apiKey = REACT_APP_FINNHUB_API_KEY; // Replace this
     const finnhubClient = new finnhub.DefaultApi();
-    const[ apiData, setData ] = useState({});
 
-    useEffect(() =>
-    {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("http://localhost:8080/");
-                const json = await response.json();
-                setData(json);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchData();
-    }, [apiData]);
     return (
-        <div className="App">
+        <Router>
+            <div className="App">
 
-            <p>{ apiData.message }</p>
-            <SearchComponents finnhubClient= {finnhubClient}/>
-
+            <Routes>
+                <Route path="/"  element={<HomePage/>} />
+                <Route path="/search" element={<SearchComponents finnhubClient={finnhubClient}/>} />
+                <Route path="/login" element={<LoginPage/>} />
+                <Route path="/signup" element={<SignUpPage/>} />
+            </Routes>
         </div>
+        </Router>
     );
 };
 
