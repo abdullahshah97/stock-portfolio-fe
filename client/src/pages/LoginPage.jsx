@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import SignUpService from "../backendService/SignUpService";
 
 const LoginPage = () => {
 
@@ -6,6 +7,10 @@ const LoginPage = () => {
         email: '',
         password: '',
     });
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
