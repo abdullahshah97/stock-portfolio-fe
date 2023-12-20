@@ -1,6 +1,7 @@
 const BASE_URL = 'http://localhost:8080/user';
 
 const SignUpService = {
+
   signup: async (userData) => {
     const response = await fetch(`${BASE_URL}/signup`, {
       method: 'POST',
@@ -13,7 +14,6 @@ const SignUpService = {
     if (!response.ok) {
       throw new Error('Failed to sign up');
     }
-
     return response.json();
   },
 };
