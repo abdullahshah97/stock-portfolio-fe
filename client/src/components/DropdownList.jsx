@@ -3,22 +3,21 @@ import React, {useEffect, useState} from "react";
 const DropdownList = ({symbol, finnhubClient, updateSymbol}) => {
     const [stockList, setStockList] = useState([]);
 
-    const fetchStockList = async (symbol) => {
-        try {
-            await finnhubClient.symbolSearch(symbol, (data, response) => {
-                if (!response.ok) {
-                    console.log(response);
-                } else {
-                    setStockList(data.result)
-                }
-            });
-        }
-        catch (error){
-            console.log(error);
-        }
-    }
-
     useEffect(() => {
+        const fetchStockList = async (symbol) => {
+            try {
+                await finnhubClient.symbolSearch(symbol, (data, response) => {
+                    if (!response.ok) {
+                        console.log(response);
+                    } else {
+                        setStockList(data.result)
+                    }
+                });
+            }
+            catch (error){
+                console.log(error);
+            }
+        }
         void fetchStockList(symbol);
     }, [symbol]);// eslint-disable-line react-hooks/exhaustive-deps
 
