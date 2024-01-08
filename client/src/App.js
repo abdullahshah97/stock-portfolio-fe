@@ -18,9 +18,9 @@ const App = () => {
 
             <Routes>
                 <Route path="/"  element={<HomePage/>} />
-                <Route path="/search" element={<SearchComponents finnhubClient={finnhubClient}/>} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/signup" element={<SignUpPage/>} />
+                <Route path="/stocks" element={<SearchComponents finnhubClient={finnhubClient}/>} />
             </Routes>
         </div>
         </Router>
