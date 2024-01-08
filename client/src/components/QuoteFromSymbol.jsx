@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 
-const QuoteFromSymbol = ({symbol, finnhubClient, updateSymbol}) => {
+const QuoteFromSymbol = ({symbol, finnhubClient}) => {
     const [quoteData, setQuoteData] = useState([]);
 
     useEffect(() => {
