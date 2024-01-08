@@ -4,15 +4,14 @@ import React, {useEffect, useState} from 'react';
 const QuoteFromSymbol = ({symbol, finnhubClient, updateSymbol}) => {
     const [quoteData, setQuoteData] = useState([]);
 
-    const fetchQuoteData = async (symbol) => {
-        if (symbol !== "") {
-            finnhubClient.quote(symbol, (error, data) => {
-                setQuoteData(data);
-            });
-        }
-    };
-
     useEffect(() => {
+        const fetchQuoteData =  async (symbol) => {
+            if (symbol !== "") {
+                finnhubClient.quote(symbol, (error, data) => {
+                    setQuoteData(data);
+                });
+            }
+        };
         void fetchQuoteData(symbol);
     }, [symbol]); // eslint-disable-line react-hooks/exhaustive-deps
 
